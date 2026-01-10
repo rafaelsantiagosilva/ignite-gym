@@ -7,9 +7,7 @@ import {
 } from '@expo-google-fonts/roboto';
 import { GluestackUIProvider } from '@gluestack-ui/themed';
 import * as NavigationBar from 'expo-navigation-bar';
-import { useEffect } from 'react';
-import { Platform, StatusBar } from 'react-native';
-import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
+import { StatusBar } from 'react-native';
 import { config } from './config/gluestack-ui.config';
 
 export default function App() {
