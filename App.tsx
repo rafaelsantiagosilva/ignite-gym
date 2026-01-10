@@ -1,20 +1,37 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { Loading } from '@/components/Loading';
+import { SignIn } from '@/screens/SigIn';
+import {
+	Roboto_400Regular,
+	Roboto_700Bold,
+	useFonts,
+} from '@expo-google-fonts/roboto';
+import { GluestackUIProvider } from '@gluestack-ui/themed';
+import * as NavigationBar from 'expo-navigation-bar';
+import { useEffect } from 'react';
+import { Platform, StatusBar } from 'react-native';
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
+import { config } from './config/gluestack-ui.config';
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+	const [fontsLoaded] = useFonts({
+		Roboto_400Regular,
+		Roboto_700Bold,
+	});
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+	NavigationBar.setStyle('inverted');
+
+	return (
+		<GluestackUIProvider
+			globalStyles={{ backgroundColor: '#000' }}
+			config={config}
+		>
+			<StatusBar
+				barStyle="light-content"
+				backgroundColor="transparent"
+				translucent
+			/>
+
+			{fontsLoaded ? <SignIn /> : <Loading />}
+		</GluestackUIProvider>
+	);
+}
