@@ -6,18 +6,25 @@ import {
 	Center,
 	Heading,
 	Image,
+	ScrollView,
 	Text,
 	VStack,
-	ScrollView,
 } from '@gluestack-ui/themed';
+import { useNavigation } from '@react-navigation/native';
 
 export function SignUp() {
+	const navigator = useNavigation();
+
+	function handleGoBack() {
+		navigator.goBack();
+	}
+
 	return (
 		<ScrollView
 			contentContainerStyle={{ flexGrow: 1 }}
 			showsVerticalScrollIndicator={false}
 		>
-			<VStack flex={1} height={'$full'} bg="$gray500">
+			<VStack flex={1} height={'$full'}>
 				<Image
 					w="$full"
 					h={624}
@@ -48,7 +55,7 @@ export function SignUp() {
 						<Text color="$gray100" fontSize="$sm" mb="$3" fontFamily="$body">
 							Já tem uma conta?
 						</Text>
-						<Button title="Acessar conta" variant="outline" />
+						<Button title="Acessar conta" variant="outline" onPress={handleGoBack} />
 					</Center>
 				</VStack>
 			</VStack>

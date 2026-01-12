@@ -2,22 +2,30 @@ import BackgroundImg from '@/assets/background.png';
 import Logo from '@/assets/logo.svg';
 import { Button } from '@/components/Button';
 import { Input } from '@/components/Input';
+import { AuthNavigatorRoutesProps } from '@/routes/auth.routes';
 import {
 	Center,
 	Heading,
 	Image,
+	ScrollView,
 	Text,
 	VStack,
-	ScrollView,
 } from '@gluestack-ui/themed';
+import { useNavigation } from '@react-navigation/native';
 
 export function SignIn() {
+	const navigator = useNavigation<AuthNavigatorRoutesProps>();
+
+	function handleNewAccount() {
+		navigator.navigate('signUp');
+	}
+
 	return (
 		<ScrollView
 			contentContainerStyle={{ flexGrow: 1 }}
 			showsVerticalScrollIndicator={false}
 		>
-			<VStack flex={1} height={'$full'} bg="$gray500">
+			<VStack flex={1} height={'$full'}>
 				<Image
 					w="$full"
 					h={624}
@@ -47,7 +55,11 @@ export function SignIn() {
 						<Text color="$gray100" fontSize="$sm" mb="$3" fontFamily="$body">
 							Ainda não tem uma conta?
 						</Text>
-						<Button title="Criar Conta" variant="outline" />
+						<Button
+							title="Criar Conta"
+							variant="outline"
+							onPress={handleNewAccount}
+						/>
 					</Center>
 				</VStack>
 			</VStack>
