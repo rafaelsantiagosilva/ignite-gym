@@ -1,7 +1,8 @@
+import { Box } from '@gluestack-ui/themed';
 import { DefaultTheme, NavigationContainer } from '@react-navigation/native';
 import { gluestackUIConfig } from '../../config/gluestack-ui.config';
+import { AppRoutes } from './app.routes';
 import { AuthRoutes } from './auth.routes';
-import { Box } from '@gluestack-ui/themed';
 
 export function Routes() {
 	const theme = DefaultTheme;
@@ -11,7 +12,8 @@ export function Routes() {
 		// double check
 		<Box flex={1} bg={theme.colors.background}>
 			<NavigationContainer theme={theme}>
-				<AuthRoutes />
+				{/* <AuthRoutes /> */}
+				<AppRoutes />
 			</NavigationContainer>
 		</Box>
 	);
