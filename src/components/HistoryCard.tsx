@@ -13,8 +13,13 @@ export function HistoryCard() {
 			alignItems="center"
 			justifyContent="space-between"
 		>
-			<VStack>
-				<Heading color="$white" fontSize="$md">
+			<VStack w="90%">
+				<Heading
+					color="$white"
+					fontSize="$md"
+					fontFamily="$heading"
+					numberOfLines={1}
+				>
 					Costas
 				</Heading>
 				<Text color="$gray100" fontSize={'$lg'} numberOfLines={1}>
